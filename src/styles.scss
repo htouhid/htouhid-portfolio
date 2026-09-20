@@ -1,1 +1,246 @@
-/* You can add global styles to this file, and also import other style files */
+/* Shared design tokens and layout primitives. No external fonts or UI dependencies. */
+:root {
+  --background: #fbfbf8;
+  --background-alt: #f3f4f0;
+  --surface: #ffffff;
+  --text: #242d30;
+  --text-secondary: #59646a;
+  --accent: #285c80;
+  --accent-soft: #e5eef4;
+  --border: #dfe3de;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-section: 6rem;
+  --container-width: 1120px;
+  --radius: 10px;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+h2 {
+  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.055em;
+  margin-bottom: 0;
+}
+h3 {
+  line-height: 1.35;
+  font-weight: 600;
+}
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  transition:
+    color 0.18s,
+    background-color 0.18s,
+    border-color 0.18s;
+}
+a:hover {
+  color: var(--accent);
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+section:focus,
+main:focus {
+  outline: none;
+}
+section:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+::selection {
+  background: #cde0ec;
+  color: var(--text);
+}
+.container {
+  width: min(var(--container-width), calc(100% - 5rem));
+  margin-inline: auto;
+}
+.section {
+  padding-block: var(--space-section);
+}
+.section-tinted {
+  background: var(--background-alt);
+  border-block: 1px solid var(--border);
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  > p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+.section-layout {
+  display: grid;
+  grid-template-columns: 28% 1fr;
+  gap: var(--space-5);
+}
+.eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+}
+.accent {
+  color: var(--accent);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 48px;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.button-primary {
+  background: var(--accent);
+  color: white;
+  &:hover {
+    background: #1d4967;
+    color: white;
+  }
+}
+.button-secondary {
+  border-color: #ccd2d0;
+  color: var(--text);
+  &:hover {
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.8rem;
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 32px;
+  }
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+    background: #eaeeeb;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    color: #46565e;
+  }
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: white;
+  border-radius: 4px;
+  &:focus {
+    top: 0.75rem;
+    color: white;
+  }
+}
+@media (max-width: 860px) {
+  :root {
+    --space-section: 4.5rem;
+  }
+  .container {
+    width: calc(100% - 3rem);
+  }
+}
+@media (max-width: 700px) {
+  :root {
+    --space-section: 3.5rem;
+  }
+  .section-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .section-heading {
+    display: block;
+    margin-bottom: 2rem;
+    > p {
+      margin-top: 1rem;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+  .actions {
+    flex-direction: column;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

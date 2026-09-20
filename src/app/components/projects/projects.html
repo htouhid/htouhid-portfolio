@@ -1,0 +1,57 @@
+<section tabindex="-1" id="work" class="section section-tinted" aria-labelledby="work-title">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">04 / Applied experience</p>
+        <h2 id="work-title">Selected Work</h2>
+      </div>
+      <p>Enterprise contributions.<br />Customer-facing experiences.</p>
+    </div>
+    <div class="project-grid">
+      @for (project of projects; track project.title) {
+        <article class="project-card">
+          <div class="project-visual">
+            <img [src]="project.image" [alt]="project.imageAlt" loading="lazy" decoding="async" />
+            <span class="project-index" aria-hidden="true">{{ project.number }} /</span>
+          </div>
+          <div class="project-body">
+            <p class="eyebrow project-label">{{ project.label }}</p>
+            <h3>{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <p class="project-description">
+              <strong>My Contribution</strong><br />{{ project.contribution }}
+            </p>
+            @if (project.brands) {
+              <p class="project-description">
+                <strong>GM brands I worked with:</strong> {{ project.brands.join(' · ') }}
+              </p>
+            }
+            <ul class="tags" aria-label="Project technologies">
+              @for (tech of project.technologies; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+            <div class="project-links">
+              @for (link of project.links; track link.url) {
+                <a
+                  [href]="link.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="link.label + ' — ' + project.title + ' (opens in a new tab)'"
+                  >{{ link.label }} <span aria-hidden="true">↗</span></a
+                >
+              }
+            </div>
+            @if (project.note) {
+              <p class="work-note">{{ project.note }}</p>
+            }
+          </div>
+        </article>
+      }
+    </div>
+    <p class="work-note">
+      Enterprise work reflects contributions made within professional teams. All related brands and
+      intellectual property belong to their respective owners.
+    </p>
+  </div>
+</section>

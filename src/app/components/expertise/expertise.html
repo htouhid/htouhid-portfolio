@@ -1,0 +1,22 @@
+<section tabindex="-1" id="expertise" class="section container" aria-labelledby="expertise-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">03 / Tools &amp; capabilities</p>
+      <h2 id="expertise-title">Expertise</h2>
+    </div>
+    <p>Angular at the core.<br />A full frontend toolkit around it.</p>
+  </div>
+  <div class="expertise-grid">
+    @for (group of skillGroups; track group.title; let index = $index) {
+      <article class="skill-card" [class.featured]="index === 0">
+        <span class="skill-number" aria-hidden="true">0{{ index + 1 }} /</span>
+        <h3>{{ group.title }}</h3>
+        <ul class="tags">
+          @for (skill of group.skills; track skill) {
+            <li [class.angular]="skill === 'Angular'">{{ skill }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,44 @@
+:host .section {
+  padding-top: 0;
+}
+.contact-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--background-alt);
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 1.3rem;
+}
+p:not(.eyebrow) {
+  max-width: 36rem;
+}
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  letter-spacing: -0.025em;
+  margin: 0.7rem 0 1.5rem;
+  border-bottom: 1px solid #9bb2c2;
+  padding-bottom: 0.35rem;
+  color: var(--accent);
+}
+.contact-symbol {
+  font-size: 7rem;
+  font-weight: 300;
+  color: #becdd4;
+  padding-left: 2rem;
+}
+@media (max-width: 700px) {
+  .contact-panel {
+    padding: 2rem 1.5rem;
+  }
+  .contact-symbol {
+    display: none;
+  }
+}

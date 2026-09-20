@@ -1,0 +1,33 @@
+<header [class.scrolled]="scrolled()">
+  <div class="header-inner container">
+    <a class="brand" href="#top" aria-label="Hussain Touhid home" (click)="closeMenu()"
+      ><span class="brand-mark">HT<span>.</span></span
+      ><span class="brand-name">Hussain Touhid</span></a
+    >
+    <button
+      id="menu-toggle"
+      class="menu-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="primary-navigation"
+      [attr.aria-label]="menuOpen() ? 'Close navigation' : 'Open navigation'"
+      (click)="menuOpen.set(!menuOpen())"
+    >
+      <span>{{ menuOpen() ? 'Close' : 'Menu' }}</span
+      ><span aria-hidden="true">{{ menuOpen() ? '×' : '☰' }}</span>
+    </button>
+    <nav id="primary-navigation" aria-label="Main navigation" [class.open]="menuOpen()">
+      @for (link of links; track link.id) {
+        <a
+          [href]="'#' + link.id"
+          [attr.aria-current]="activeSection() === link.id ? 'location' : null"
+          (click)="navigate(link.id)"
+          >{{ link.label }}</a
+        >
+      }
+      <a class="resume-link" href="/Hussain-Touhid-Resume.pdf" target="_blank" rel="noopener"
+        >Resume <span aria-hidden="true">↗</span></a
+      >
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,57 @@
+<section
+  tabindex="-1"
+  id="experience"
+  class="section section-tinted"
+  aria-labelledby="experience-title"
+>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">02 / Career so far</p>
+        <h2 id="experience-title">Experience</h2>
+      </div>
+      <p>Enterprise scale.<br />Careful attention to the interface.</p>
+    </div>
+    <div class="timeline">
+      @for (experience of experiences; track experience.company; let first = $first) {
+        <article class="timeline-entry" [class.current]="first">
+          <div class="timeline-meta">
+            <p class="period">{{ experience.period }}</p>
+            <p class="location">{{ experience.location }}</p>
+            @if (first) {
+              <span class="current-label">Current role</span>
+            }
+          </div>
+          <div class="timeline-content">
+            <h3>{{ experience.company }}</h3>
+            <p class="role">{{ experience.role }}</p>
+            <p>{{ experience.summary }}</p>
+            @if (experience.highlights) {
+              <ul class="highlights">
+                @for (highlight of experience.highlights; track highlight) {
+                  <li>{{ highlight }}</li>
+                }
+              </ul>
+            }
+            <ul class="tags" aria-label="Technologies">
+              @for (tech of experience.technologies; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+    <div class="earlier">
+      <h3>Earlier Experience</h3>
+      <div class="earlier-grid">
+        @for (experience of earlierExperience; track experience.company) {
+          <div>
+            <h4>{{ experience.company }}</h4>
+            <p>{{ experience.role }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

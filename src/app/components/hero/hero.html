@@ -1,0 +1,68 @@
+<section class="hero container" aria-labelledby="hero-title">
+  <div class="hero-content">
+    <p class="eyebrow">
+      <span class="short-line" aria-hidden="true"></span> ANGULAR · UI ENGINEERING · ENTERPRISE WEB
+    </p>
+    <h1 id="hero-title">Hussain Touhid</h1>
+    <p class="hero-role">UI Developer &amp;<br />Angular Frontend Engineer</p>
+    <p class="hero-intro">
+      I build responsive, accessible, and scalable web interfaces for enterprise applications,
+      specializing in Angular, TypeScript, modern UI development, and Adobe Experience Manager.
+    </p>
+    <div class="actions">
+      <a class="button button-primary" href="#work"
+        >View My Work <span aria-hidden="true">↗</span></a
+      >
+      <a class="button button-secondary" href="/Hussain-Touhid-Resume.pdf" download
+        >Download Resume <span aria-hidden="true">↓</span></a
+      >
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/htouhid/" target="_blank" rel="noopener noreferrer"
+        >LinkedIn <span aria-hidden="true">↗</span></a
+      ><a href="https://github.com/htouhid" target="_blank" rel="noopener noreferrer"
+        >GitHub <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </div>
+  <div
+    class="craft-panel"
+    aria-label="Frontend focus: Angular, reusable components, accessibility, and scalable interfaces"
+  >
+    <div class="panel-top">
+      <span class="monogram">HT<span class="accent">.</span></span
+      ><span class="panel-caption">FRONTEND / UI</span>
+    </div>
+    <div class="interface-image">
+      <img
+        src="/images/hero-ui.png"
+        alt="Enterprise web application user interface"
+        decoding="async"
+      />
+    </div>
+    <p class="panel-title">Enterprise UI<br />Engineering.</p>
+    <div class="panel-bottom">
+      <span>Angular at the core</span><span aria-hidden="true">↗</span>
+    </div>
+  </div>
+  <div class="technology-strip">
+    <span class="strip-label">MY TOOLKIT</span>
+    <ul aria-label="Core technologies">
+      @for (
+        tech of [
+          'Angular',
+          'TypeScript',
+          'JavaScript',
+          'RxJS',
+          'HTML5',
+          'SCSS',
+          'AEM',
+          'Accessibility',
+        ];
+        track tech
+      ) {
+        <li [class.primary-tech]="tech === 'Angular'">{{ tech }}</li>
+      }
+    </ul>
+  </div>
+</section>
